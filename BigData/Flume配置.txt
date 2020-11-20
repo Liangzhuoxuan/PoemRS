@@ -1,0 +1,40 @@
+a1.sources = r1
+a1.sinks = k1 k2
+a1.channels = c1 c2
+# r1 收集到的内容，会给每个 channel 都传一份
+a1.sources.r1.selector.type=replicating
+
+a1.sources.r1.type = http
+a1.sources.r1.bind = 0.0.0.0
+a1.sources.r1.port = 5555
+a1.sources.r1.channels = c1 c2
+a1.sources.r1.handler = org.apache.flume.source.http.JSONHandler
+
+# a1.sinks.k1.type = org.apache.spark.streaming.flume.sink.SparkSink
+# a1.sinks.k1.hostname = localhost
+# a1.sinks.k1.port = 1234
+# a1.sinks.k1.channel = c1
+
+a1.sinks.k1.type = avro
+a1.sinks.k1.hostname = localhost
+a1.sinks.k1.port = 1234
+a1.sinks.k1.channel = c1
+
+a1.sinks.k2.type = hdfs
+# 这里必须是 master 节点的 ip
+a1.sinks.k2.hdfs.path = hdfs://Master:9000/user_behavior/
+a1.sinks.k2.hdfs.fileType=DataStream
+a1.sinks.k2.hdfs.writeFormat = TEXT
+a1.sinks.k2.hdfs.rollCount=5
+a1.sinks.k2.hdfs.filePrefix = events-
+a1.sinks.k2.channel = c2
+# 输出文件的前缀
+
+
+a1.channels.c1.type = memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+
+a1.channels.c2.type = memory
+a1.channels.c2.capacity = 1000
+a1.channels.c2.transactionCapacity = 100
