@@ -15,8 +15,8 @@
   - 基于 `Flume + Spark-Streaming + Redis` 的数据采集及传输（在线层）
 
 
+![推荐架构图](https://img-blog.csdnimg.cn/20201121110524763.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzkxMzgz,size_10,color_FFFFFF,t_70)
 
-<img src="https://img-blog.csdnimg.cn/20201121110524763.jpg/x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk" width = "100" height = "100" alt="推荐系统架构图" align=center />
 
 ## 3 推荐算法
 - 使用带偏置的 `MF` 模型 `SVD` 作为召回模型
