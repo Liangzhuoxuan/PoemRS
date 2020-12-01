@@ -1,5 +1,4 @@
 # PoemRS
-@[toc]
 
 ## 1 推荐服务
 - 相似古诗推荐
@@ -25,4 +24,14 @@
 - 提供 经典排序模型 `LR` 、`FM`、`Xgb+LR`、`Xgb+FM` 的模型测试对比
 
 
-
+## 4 所使用的语言及框架版本
+```
+jdk-1.8.0_172
+python 3.6.4
+hadoop-2.6.5
+spark-2.2.0-bin-hadoop2.6
+scala-2.11.12
+apache-flume-1.9.0
+mongodb-linux-x86_64-4.0.13
+redis-5.0.7
+```
